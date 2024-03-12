@@ -1,56 +1,68 @@
 public class NormaMachine {
-    private int A;
-    private int B;
-    private int C = 0;
-    private int D;
-
-    public void addAB() {
-        int aux = 0;
-        while(aux == 0){
+    public void addAB(int A, int B) {
+        while(B != 0){
             A++;
             B--;
-            if(B == 0) aux = aux + 1;
         }
+        System.out.println("A: " + A + " B: " + B);
     }
 
-    public void addABWithC(){
-        int aux = 0;
-        while(aux == 0){
+    public void addABWithC(int A, int B){
+        int C = 0;
+        while(B != 0){
             B--;
             C++;
-            if (B == 0) aux = aux + 1;
         }
 
-        aux = 0;
-        while(aux == 0){
+        while(C != 0){
             C--;
             A++;
             B++;
-            if (C == 0) aux += 1;
         }
+        System.out.println("A: " + A + " B: " + B + " C: " + C);
     }
 
-    public void AReceiveBWithC(){
-        int aux = 0;
-        while (aux == 0) {
-            B--;
-            A++;
+    public void AReceiveBWithC(int A, int B){
+       int C = 0;
+       while(B != 0){
+           B--;
+           C++;
+       }
+
+       while(A != 0){
+           A--;
+       }
+
+       while(C != 0){
+           A++;
+           B++;
+           C--;
+       }
+       System.out.println("A: " + A + " B: " + B + " C: " + C);
+    }
+
+    public void AMultB(int A, int B){
+        int C = 0, D = 0, E = 0;
+
+        while(B != 0){
             C++;
-            if (B == 0) aux += 1;
+            B--;
         }
 
-        aux = 0;
-        while(aux == 0) {
+        while(C != 0){
             B++;
             C--;
-            if (C == 0) aux += 1;
+            while(A != 0){
+                A--;
+                D++;
+                E++;
+            }
+            while(D!=0){
+                D--;
+                A++;
+            }
         }
-    }
 
-    public void AMultB(){
-        int aux = 0;
-
-
-
+        System.out.println("A: " + A + " B: " + B + " C: " + C + " D: " + D + " Resultado final: " + E);
     }
 }
