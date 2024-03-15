@@ -1,13 +1,34 @@
 public class NormaMachine {
-    public void addAB(int A, int B) {
-        while(B != 0){
-            A++;
-            B--;
+    // B1 OU A1 == 0 - POSITIVO
+    // B2 OU A2 == 1 - NEGATIVO
+    public String addAB(int A1,  int A2, int B1, int B2) {
+
+        if (B1 == 0) {
+            while(B2 != 0){
+                if(A2 == 0) {
+                    A2++;
+                    B2--;
+                    A1--;
+                }
+                A2++;
+                B2--;
+            }
+        } else {
+            while(B2 != 0){
+                if(A2 == 0) {
+                    A2--;
+                    B2++;
+                    A1++;
+                }
+                A2--;
+                B2++;
+            }
         }
-        System.out.println("A: " + A + " B: " + B);
+
+        return "Resultado da operação A + B: " + A2;
     }
 
-    public void addABWithC(int A, int B){
+    public String addABWithC(int A, int B){
         int C = 0;
         while(B != 0){
             B--;
@@ -19,10 +40,10 @@ public class NormaMachine {
             A++;
             B++;
         }
-        System.out.println("A: " + A + " B: " + B + " C: " + C);
+        return "\nResultado A + B com C: " + A + "\nB: " + B + "\nC: " + C;
     }
 
-    public void AReceiveBWithC(int A, int B){
+    public int AReceiveBWithC(int A, int B){
        int C = 0;
        while(B != 0){
            B--;
@@ -38,10 +59,11 @@ public class NormaMachine {
            B++;
            C--;
        }
-       System.out.println("A: " + A + " B: " + B + " C: " + C);
+
+       return A;
     }
 
-    public void AMultB(int A, int B){
+    public String AMultB(int A, int B){
         int C = 0, D = 0, E = 0;
 
         while(B != 0){
@@ -63,6 +85,24 @@ public class NormaMachine {
             }
         }
 
-        System.out.println("A: " + A + " B: " + B + " C: " + C + " D: " + D + " Resultado final: " + E);
+        return "\nA X B = " + E + "\nA: " + A + "\nB: " + B + "\nC: " + C + "\nD: " + D;
     }
+
+    public boolean isPrimo(int A) {
+        int B = 0;
+        int C = 0;
+        C = AReceiveBWithC(C, A);
+
+        while(C != 0) {
+            if (A % C == 0) {
+                B++;
+            }
+            C--;
+        }
+        B--;
+        B--;
+
+        return B == 0;
+    }
+
 }
